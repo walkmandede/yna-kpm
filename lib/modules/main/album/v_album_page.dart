@@ -27,7 +27,7 @@ class AlbumPage extends StatelessWidget {
           ),
           child: SingleChildScrollView(
             controller: controller.scrollController,
-            key: const PageStorageKey("Story Page"),
+            key: const PageStorageKey("Album Page"),
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
