@@ -14,35 +14,56 @@ class AlbumDetailView extends StatelessWidget {
       data: MediaQuery.of(context).copyWith(textScaleFactor: 1),
       child: Scaffold(
         backgroundColor: AppColors.bgGrey,
-        appBar: AppBar(
-          elevation: 0,
-          backgroundColor: Colors.transparent,
-        ),
-        body: Column(
+        // appBar: AppBar(
+        //   elevation: 0,
+        //   backgroundColor: Colors.transparent,
+        // ),
+        body: Stack(
           children: [
-            Expanded(
-              child: ValueListenableBuilder(
-                valueListenable: controller.currentImage,
-                builder: (context, currentImage, child) {
-                  return Center(
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(20),
-                      child: Image.asset(currentImage),
-                    ),
-                    // child: Container(
-                    //   width: double.infinity,
-                    //   decoration: BoxDecoration(
-                    //     image: DecorationImage(
-                    //       image: Image.asset(currentImage).image,
-                    //       fit: BoxFit.contain
-                    //     )
-                    //   ),
-                    // ),
-                  );
-                },
-              ),
+            Column(
+              children: [
+                Expanded(
+                  child: ValueListenableBuilder(
+                    valueListenable: controller.currentImage,
+                    builder: (context, currentImage, child) {
+                      return Center(
+                        child: ClipRRect(
+                          // borderRadius: BorderRadius.circular(20),
+                          child: Image.asset(
+                            currentImage,
+                            fit: BoxFit.contain,
+                            width: Get.width,
+                          ),
+                        ),
+                        // child: Container(
+                        //   width: double.infinity,
+                        //   decoration: BoxDecoration(
+                        //     image: DecorationImage(
+                        //       image: Image.asset(currentImage).image,
+                        //       fit: BoxFit.contain
+                        //     )
+                        //   ),
+                        // ),
+                      );
+                    },
+                  ),
+                ),
+                const AlbumImageControlPanel()
+              ],
             ),
-            const AlbumImageControlPanel()
+            Positioned(
+              top: 50,
+              left: 20,
+              child: InkWell(
+                onTap: () => Get.back(),
+                child: Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: const BoxDecoration(
+                      color: Colors.white, shape: BoxShape.circle),
+                  child: const Icon(Icons.arrow_back),
+                ),
+              ),
+            )
           ],
         ),
       ),

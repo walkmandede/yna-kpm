@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-class AppAssets{
-
+class AppAssets {
   //home
   static String homeBg = "assets/images/home_bg.png";
   //story
@@ -24,5 +23,6 @@ class AppAssets{
   static String a6 = "assets/images/a6.png";
   static String a7 = "assets/images/a7.png";
   static String a8 = "assets/images/a8.png";
-
+  static String a9 = "assets/images/a9.png";
+  static String a10 = "assets/images/a10.png";
 }
