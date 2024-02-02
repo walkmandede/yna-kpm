@@ -33,6 +33,7 @@ class StoryPage extends StatelessWidget {
         ),
         child: SingleChildScrollView(
           controller: controller.scrollController,
+          physics: const BouncingScrollPhysics(),
           key: const PageStorageKey("Story Page"),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

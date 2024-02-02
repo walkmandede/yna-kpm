@@ -28,6 +28,7 @@ class AlbumPage extends StatelessWidget {
           child: SingleChildScrollView(
             controller: controller.scrollController,
             key: const PageStorageKey("Album Page"),
+            physics: const BouncingScrollPhysics(),
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

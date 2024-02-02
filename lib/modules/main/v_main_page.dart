@@ -22,19 +22,26 @@ class MainPage extends StatelessWidget {
         return Scaffold(
           body: Stack(
             children: [
-              PageView(
-                controller: controller.pageController,
-                scrollDirection: Axis.vertical,
-                onPageChanged: (value) {
-                  controller.onPageChange(pageIndex: value);
+              ValueListenableBuilder(
+                valueListenable: controller.currentPage,
+                builder: (context, currentPage, child) {
+                  final xShouldScroll = currentPage==1||currentPage==3;
+                  return PageView(
+                    controller: controller.pageController,
+                    scrollDirection: Axis.vertical,
+                    physics: xShouldScroll?const NeverScrollableScrollPhysics():const ClampingScrollPhysics(),
+                    onPageChanged: (value) {
+                      controller.onPageChange(pageIndex: value);
+                    },
+                    allowImplicitScrolling: false,
+                    children: const[
+                      HomePage(),
+                      StoryPage(),
+                      WeddingPage(),
+                      AlbumPage()
+                    ],
+                  );
                 },
-                allowImplicitScrolling: false,
-                children: const[
-                  HomePage(),
-                  StoryPage(),
-                  WeddingPage(),
-                  AlbumPage()
-                ],
               ),
               Positioned(
                 bottom: (pageSize.width*0.075*getScreenScaleFactor()),
