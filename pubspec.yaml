@@ -19,6 +19,7 @@ dependencies:
   google_fonts:
   flutter_map:
   flutter_svg: ^2.0.9
+  device_info_plus: ^9.1.2
 
 
 dev_dependencies:

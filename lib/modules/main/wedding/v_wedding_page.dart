@@ -14,7 +14,7 @@ class WeddingPage extends StatelessWidget {
       decoration: BoxDecoration(
           image: DecorationImage(
               image: Image.asset(AppAssets.weddingBg).image,
-              fit: BoxFit.cover
+              fit: BoxFit.fill
           )
       ),
     );
