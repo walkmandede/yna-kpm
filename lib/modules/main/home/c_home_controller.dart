@@ -32,31 +32,41 @@ class HomeController extends GetxController{
   }
 
   Future<void> onClickSend() async{
-    if(txtName.text.isEmpty){
-      DialogService().showTransactionDialog(text: "Please enter your name");
-    }
-    else if(txtWish.text.isEmpty){
+    if(txtWish.text.isEmpty){
       DialogService().showTransactionDialog(text: "Please write something you wanna say!");
     }
     else{
       DialogService().showLoadingDialog();
-      final response = await http.post(
-          Uri.parse("${ApiServices.baseUrl}/wish"),
-          headers: ApiServices.headers,
-          body: jsonEncode(
-            {
-              "wish" : txtWish.text,
-              "name" : txtName.text
-            }
-          )
-        // body: jsonEncode({"deviceInfo" : deviceId})
-      );
+      http.Response? response;
+      superPrint("start");
+      try{
+        response = await http.post(
+            Uri.parse("${ApiServices.baseUrl}/wish"),
+            headers: ApiServices.headers,
+            body: jsonEncode(
+                {
+                  "wish" : txtWish.text.isEmpty?"Anonymous":txtWish.text,
+                  "name" : txtName.text
+                }
+            )
+        );
+      }
+      catch(e){
+        superPrint(e);
+        null;
+      }
       DialogService().dismissDialog();
-      if(response.statusCode == 200 || response.statusCode ==201){
-        DialogService().showTransactionDialog(text: "Success! Thank you so much for supporting us");
+      if(response==null){
+        DialogService().showTransactionDialog(text: "Something went wrong, please try again!");
+
       }
       else{
-        DialogService().showTransactionDialog(text: "Something went wrong, please try again!");
+        if(response.statusCode == 200 || response.statusCode ==201){
+          DialogService().showTransactionDialog(text: "Success! Thank you so much for supporting us");
+        }
+        else{
+          DialogService().showTransactionDialog(text: "Something went wrong, please try again!");
+        }
       }
     }
   }

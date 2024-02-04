@@ -35,6 +35,7 @@ class AlbumPage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         (Get.mediaQuery.padding.top).heightBox(),
+                        20.heightBox(),
                         Row(
                           children: [
                             Expanded(

@@ -119,10 +119,14 @@ class RsvpPage extends StatelessWidget {
                     10.heightBox(),
                     Row(
                       children: [
-                        const Text(
-                          "No. of people",
-                          style: TextStyle(
-                            fontSize: 20
+                        const Flexible(
+                          child: FittedBox(
+                            child: Text(
+                              "No. of people",
+                              style: TextStyle(
+                                  fontSize: 20
+                              ),
+                            ),
                           ),
                         ),
                         5.widthBox(),
@@ -136,13 +140,11 @@ class RsvpPage extends StatelessWidget {
                         ValueListenableBuilder(
                           valueListenable: controller.totalPeople,
                           builder: (context, totalPeople, child) {
-                            return Container(
-                              child: Text(
-                                totalPeople.toString(),
-                                style: const TextStyle(
-                                  fontSize: 25,
-                                  fontWeight: FontWeight.bold
-                                ),
+                            return Text(
+                              totalPeople.toString(),
+                              style: const TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold
                               ),
                             );
                           },

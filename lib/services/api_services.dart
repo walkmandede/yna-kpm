@@ -1,6 +1,6 @@
 
 class ApiServices{
-  static String baseUrl = "http://150.95.83.102/api";
+  static String baseUrl = "https://weddingbackend.myanmarhealthsupport.org/api";
 
   static Map<String,String> headers = {
     "Accept": "*/*",

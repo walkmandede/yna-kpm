@@ -8,6 +8,7 @@ import 'package:platform_device_id/platform_device_id.dart';
 import 'package:wedding_app/constants/app_assets.dart';
 import 'package:wedding_app/constants/app_functions.dart';
 import 'package:wedding_app/services/api_services.dart';
+import 'package:wedding_app/services/dialog/dialog_service.dart';
 import 'package:wedding_app/services/mongo_service.dart';
 import 'package:http/http.dart' as http;
 
@@ -19,6 +20,7 @@ class MainPageController extends GetxController with GetTickerProviderStateMixin
   ValueNotifier<int> currentPage = ValueNotifier(0);
   AnimationController? indicatorBarAnimation;
   ValueNotifier<double> indicatorBarAnimatedValue = ValueNotifier(0);
+  ValueNotifier<bool> xCachedCompleted = ValueNotifier(false);
 
   @override
   void onInit() {
@@ -47,6 +49,7 @@ class MainPageController extends GetxController with GetTickerProviderStateMixin
     indicatorBarAnimation!.forward();
     await Future.delayed(const Duration(milliseconds: 3500));
     indicatorBarAnimation!.reverse();
+    precacheImages();
   }
 
   Future<void> onPageChange({required int pageIndex}) async{
@@ -65,11 +68,19 @@ class MainPageController extends GetxController with GetTickerProviderStateMixin
   
   Future<void> precacheImages() async{
     try{
-      await precacheImage(AssetImage(AppAssets.homeBg), Get.context!);
+      await Future.wait([
+        precacheImage(AssetImage(AppAssets.homeBg), Get.context!),
+        precacheImage(AssetImage(AppAssets.weddingBg), Get.context!),
+        precacheImage(AssetImage(AppAssets.rsvpBg), Get.context!),
+        precacheImage(AssetImage(AppAssets.storyBg), Get.context!),
+      ]);
+
     }
     catch(e){
       null;
     }
+    xCachedCompleted.value = true;
+    xCachedCompleted.notifyListeners();
   }
 
   Future<void> setDeviceInfo() async{
