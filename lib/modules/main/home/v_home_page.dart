@@ -24,14 +24,15 @@ class HomePage extends StatelessWidget {
         return Container(
           width: double.infinity,
           height: double.infinity,
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: Image.asset(AppAssets.homeBg).image,
-                  fit: BoxFit.cover
-              )
-          ),
+          // decoration: BoxDecoration(
+          //     image: DecorationImage(
+          //         image: Image.asset(AppAssets.homeBg).image,
+          //         fit: BoxFit.cover
+          //     )
+          // ),
           child: Stack(
             children: [
+              //todo - here gonna be bg will page view horizontal scroll ( indicator lay pr yin po kg ml )
               Column(
                 children: [
                   (Get.mediaQuery.padding.top).heightBox(),
