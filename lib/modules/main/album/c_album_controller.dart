@@ -64,48 +64,50 @@ class AlbumController extends GetxController {
     });
 
     //setScrollListener
-    // scrollController.addListener(() async {
-    //   if (mainController.pageController.page == 3) {
-    //     final scrolledValue = scrollController.position.pixels;
-    //     switch (currentScrollState.value) {
-    //       case ScrolledState.top:
-    //         if (scrolledValue > 0) {
-    //           //scrolling
-    //           currentScrollState.value = ScrolledState.mid;
-    //           currentScrollState.notifyListeners();
-    //         } else if (scrolledValue < 0) {
-    //           //goingToPrevPage
-    //           mainController.pageController.previousPage(
-    //               duration: const Duration(milliseconds: 600),
-    //               curve: Curves.linear);
-    //           // mainController.pageController.animateToPage(2, duration: const Duration(milliseconds: 250), curve: Curves.linear);
-    //         }
-    //         break;
-    //       case ScrolledState.mid:
-    //         final maxValue = scrollController.position.maxScrollExtent;
-    //         if (scrolledValue > maxValue) {
-    //           await Future.delayed(const Duration(milliseconds: 1000));
-    //           currentScrollState.value = ScrolledState.bottom;
-    //           currentScrollState.notifyListeners();
-    //         } else if (scrolledValue < 0) {
-    //           await Future.delayed(const Duration(milliseconds: 1000));
-    //           currentScrollState.value = ScrolledState.top;
-    //           currentScrollState.notifyListeners();
-    //         }
-    //         break;
-    //       case ScrolledState.bottom:
-    //         final maxValue = scrollController.position.maxScrollExtent;
-    //         if (scrolledValue > maxValue) {
-    //           //goingToNextPage
-    //           // mainController.pageController.animateToPage(2, duration: const Duration(milliseconds: 250), curve: Curves.linear);
-    //         } else if (scrolledValue < maxValue) {
-    //           //scrolling
-    //           currentScrollState.value = ScrolledState.mid;
-    //           currentScrollState.notifyListeners();
-    //         }
-    //         break;
-    //     }
-    //   }
-    // });
+    scrollController.addListener(() async {
+      if (mainController.pageController.page == 3) {
+        final scrolledValue = scrollController.position.pixels;
+        switch (currentScrollState.value) {
+          case ScrolledState.top:
+            if (scrolledValue > 0) {
+              //scrolling
+              currentScrollState.value = ScrolledState.mid;
+              currentScrollState.notifyListeners();
+            } else if (scrolledValue < 0) {
+              //goingToPrevPage
+              mainController.pageController.previousPage(
+                  duration: const Duration(milliseconds: 600),
+                  curve: Curves.linear);
+              // mainController.pageController.animateToPage(2, duration: const Duration(milliseconds: 250), curve: Curves.linear);
+            }
+            break;
+          case ScrolledState.mid:
+            final maxValue = scrollController.position.maxScrollExtent;
+            if (scrolledValue > maxValue) {
+              await Future.delayed(const Duration(milliseconds: 1000));
+              currentScrollState.value = ScrolledState.bottom;
+              currentScrollState.notifyListeners();
+            } else if (scrolledValue < 0) {
+              await Future.delayed(const Duration(milliseconds: 1000));
+              currentScrollState.value = ScrolledState.top;
+              currentScrollState.notifyListeners();
+            }
+            break;
+          case ScrolledState.bottom:
+            final maxValue = scrollController.position.maxScrollExtent;
+            if (scrolledValue > maxValue) {
+              //goingToNextPage
+              mainController.pageController.nextPage(
+                  duration: const Duration(milliseconds: 250),
+                  curve: Curves.linear);
+            } else if (scrolledValue < maxValue) {
+              //scrolling
+              currentScrollState.value = ScrolledState.mid;
+              currentScrollState.notifyListeners();
+            }
+            break;
+        }
+      }
+    });
   }
 }

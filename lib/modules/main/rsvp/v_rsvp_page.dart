@@ -25,47 +25,33 @@ class RsvpPage extends StatelessWidget {
     final controller = Get.put(RsvpController());
     return LayoutBuilder(
       builder: (context, constraints) {
-        final layoutSize = Size(constraints.maxWidth,constraints.maxHeight);
+        final layoutSize = Size(constraints.maxWidth, constraints.maxHeight);
         return Container(
           width: double.infinity,
           height: double.infinity,
           decoration: BoxDecoration(
               image: DecorationImage(
                   image: Image.asset(AppAssets.rsvpBg).image,
-                  fit: BoxFit.fill
-              )
-          ),
+                  fit: BoxFit.fill)),
           padding: EdgeInsets.symmetric(
-            horizontal: min(30, layoutSize.width*0.15),
-            vertical: min(100, layoutSize.height*0.2)
-          ),
+              horizontal: min(30, layoutSize.width * 0.15),
+              vertical: min(100, layoutSize.height * 0.2)),
           child: Container(
             width: double.infinity,
             height: double.infinity,
-            padding: EdgeInsets.all(
-              min(10, layoutSize.width*0.01)
-            ),
+            padding: EdgeInsets.all(min(10, layoutSize.width * 0.01)),
             decoration: BoxDecoration(
-              color: AppColors.white,
-              border: Border.all(
-                color: AppColors.gold,
-                width: 2.5
-              )
-            ),
+                color: AppColors.white,
+                border: Border.all(color: AppColors.gold, width: 2.5)),
             child: Container(
               width: double.infinity,
               height: double.infinity,
               padding: EdgeInsets.symmetric(
-                horizontal: min(20, layoutSize.width*0.025),
-                vertical: min(20, layoutSize.width*0.035)
-              ),
+                  horizontal: min(20, layoutSize.width * 0.025),
+                  vertical: min(20, layoutSize.width * 0.035)),
               decoration: BoxDecoration(
                   color: AppColors.white,
-                  border: Border.all(
-                      color: AppColors.gold,
-                      width: 2
-                  )
-              ),
+                  border: Border.all(color: AppColors.gold, width: 2)),
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -92,8 +78,7 @@ class RsvpPage extends StatelessWidget {
                           border: AppWidgets.textFieldBorder(),
                           enabledBorder: AppWidgets.textFieldBorder(),
                           focusedBorder: AppWidgets.textFieldBorder(),
-                          labelText: "Name"
-                      ),
+                          labelText: "Name"),
                       maxLines: 1,
                       onTapOutside: (event) {
                         dismissKeyboard();
@@ -107,8 +92,7 @@ class RsvpPage extends StatelessWidget {
                           border: AppWidgets.textFieldBorder(),
                           enabledBorder: AppWidgets.textFieldBorder(),
                           focusedBorder: AppWidgets.textFieldBorder(),
-                          labelText: "Phone"
-                      ),
+                          labelText: "Phone"),
                       keyboardType: TextInputType.phone,
                       maxLines: 1,
                       onTapOutside: (event) {
@@ -119,20 +103,21 @@ class RsvpPage extends StatelessWidget {
                     10.heightBox(),
                     Row(
                       children: [
-                        const Text(
+                        5.widthBox(),
+                        Text(
                           "No. of people",
-                          style: TextStyle(
-                            fontSize: 20
-                          ),
+                          style:
+                              TextStyle(fontSize: 16, color: AppColors.brown),
                         ),
                         5.widthBox(),
-                        const Spacer(),
-                        IconButton(onPressed: () {
-                          if(controller.totalPeople.value>1){
-                            controller.totalPeople.value--;
-                            controller.totalPeople.notifyListeners();
-                          }
-                        }, icon: const Icon(Icons.remove)),
+                        IconButton(
+                            onPressed: () {
+                              if (controller.totalPeople.value > 1) {
+                                controller.totalPeople.value--;
+                                controller.totalPeople.notifyListeners();
+                              }
+                            },
+                            icon: const Icon(Icons.remove)),
                         ValueListenableBuilder(
                           valueListenable: controller.totalPeople,
                           builder: (context, totalPeople, child) {
@@ -140,17 +125,18 @@ class RsvpPage extends StatelessWidget {
                               child: Text(
                                 totalPeople.toString(),
                                 style: const TextStyle(
-                                  fontSize: 25,
-                                  fontWeight: FontWeight.bold
-                                ),
+                                    fontSize: 25, fontWeight: FontWeight.bold),
                               ),
                             );
                           },
                         ),
-                        IconButton(onPressed: () {
-                          controller.totalPeople.value++;
-                          controller.totalPeople.notifyListeners();
-                        }, icon: const Icon(Icons.add)),
+                        IconButton(
+                            onPressed: () {
+                              controller.totalPeople.value++;
+                              controller.totalPeople.notifyListeners();
+                            },
+                            icon: const Icon(Icons.add)),
+                        const Spacer(),
                       ],
                     ),
                     10.heightBox(),
@@ -160,8 +146,7 @@ class RsvpPage extends StatelessWidget {
                           border: AppWidgets.textFieldBorder(),
                           enabledBorder: AppWidgets.textFieldBorder(),
                           focusedBorder: AppWidgets.textFieldBorder(),
-                          labelText: "Note(Optional)"
-                      ),
+                          labelText: "Note(Optional)"),
                       keyboardType: TextInputType.phone,
                       maxLines: 1,
                       onTapOutside: (event) {
@@ -180,16 +165,13 @@ class RsvpPage extends StatelessWidget {
                         style: ElevatedButton.styleFrom(
                           elevation: 0,
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)
-                          ),
+                              borderRadius: BorderRadius.circular(10)),
                           backgroundColor: AppColors.red,
                         ),
                         child: const Text(
                           "Accept with pleasure",
                           style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 16
-                          ),
+                              fontWeight: FontWeight.w600, fontSize: 16),
                         ),
                       ),
                     ),
@@ -198,17 +180,14 @@ class RsvpPage extends StatelessWidget {
                       text: TextSpan(
                         text: "Your Presence",
                         style: DefaultTextStyle.of(context).style.copyWith(
-                          color: AppColors.red,
-                          fontWeight: FontWeight.bold
-                        ),
+                            color: AppColors.red, fontWeight: FontWeight.w500),
                         children: const <TextSpan>[
                           TextSpan(
-                              text: " is present enough but if you can't join in person but want to contribute, your generosity is appreciated. your support adds joy to our special day",
+                              text:
+                                  " is present enough even if you can't join in person but want to contribute, your generosity is appreciated. your support adds joy to our special day",
                               style: TextStyle(
-                                fontWeight: FontWeight.normal,
-                                color: Colors.black
-                              )
-                          ),
+                                  fontWeight: FontWeight.w300,
+                                  color: Colors.black)),
                         ],
                       ),
                     ),
@@ -220,19 +199,15 @@ class RsvpPage extends StatelessWidget {
                           child: Text(
                             "KPay",
                             style: TextStyle(
-                                fontSize: 16,
+                                fontSize: 14,
                                 fontWeight: FontWeight.bold,
-                                color: AppColors.gold
-                            ),
+                                color: AppColors.gold),
                           ),
                         ),
                         2.widthBox(),
                         const SelectableText(
                           "09756690082, 09756690081",
-                          style: TextStyle(
-                              fontSize: 16,
-                              color: Colors.black
-                          ),
+                          style: TextStyle(fontSize: 14, color: Colors.black),
                         )
                       ],
                     ),
@@ -244,19 +219,15 @@ class RsvpPage extends StatelessWidget {
                           child: Text(
                             "CB",
                             style: TextStyle(
-                                fontSize: 16,
+                                fontSize: 14,
                                 fontWeight: FontWeight.bold,
-                                color: AppColors.gold
-                            ),
+                                color: AppColors.gold),
                           ),
                         ),
                         2.widthBox(),
                         const SelectableText(
                           "0016 6005 0009 6555",
-                          style: TextStyle(
-                              fontSize: 16,
-                              color: Colors.black
-                          ),
+                          style: TextStyle(fontSize: 14, color: Colors.black),
                         )
                       ],
                     ),
@@ -268,19 +239,15 @@ class RsvpPage extends StatelessWidget {
                           child: Text(
                             "AYA",
                             style: TextStyle(
-                                fontSize: 16,
+                                fontSize: 14,
                                 fontWeight: FontWeight.bold,
-                                color: AppColors.gold
-                            ),
+                                color: AppColors.gold),
                           ),
                         ),
                         2.widthBox(),
                         const SelectableText(
                           "20009398700",
-                          style: TextStyle(
-                              fontSize: 16,
-                              color: Colors.black
-                          ),
+                          style: TextStyle(fontSize: 14, color: Colors.black),
                         )
                       ],
                     ),
@@ -293,5 +260,4 @@ class RsvpPage extends StatelessWidget {
       },
     );
   }
-
 }

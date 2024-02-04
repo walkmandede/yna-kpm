@@ -22,16 +22,14 @@ class WeddingPage extends StatelessWidget {
     final controller = Get.put(WeddingController());
     return LayoutBuilder(
       builder: (context, constraints) {
-        final layoutSize = Size(constraints.maxWidth,constraints.maxHeight);
+        final layoutSize = Size(constraints.maxWidth, constraints.maxHeight);
         return Container(
           width: double.infinity,
           height: double.infinity,
           decoration: BoxDecoration(
               image: DecorationImage(
                   image: Image.asset(AppAssets.weddingBg).image,
-                  fit: BoxFit.fill
-              )
-          ),
+                  fit: BoxFit.fill)),
           child: Stack(
             children: [
               Column(
@@ -39,9 +37,7 @@ class WeddingPage extends StatelessWidget {
                   (Get.mediaQuery.padding.top).heightBox(),
                   (Get.height * 0.005).heightBox(),
                   Container(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: Get.width * 0.1
-                    ),
+                    padding: EdgeInsets.symmetric(horizontal: Get.width * 0.1),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -50,9 +46,7 @@ class WeddingPage extends StatelessWidget {
                             child: Text(
                               "We are getting married",
                               style: GoogleFonts.alexBrush(
-                                  fontSize: 2000,
-                                  color: AppColors.red
-                              ),
+                                  fontSize: 2000, color: AppColors.red),
                             ),
                           ),
                         )
@@ -65,21 +59,22 @@ class WeddingPage extends StatelessWidget {
               ValueListenableBuilder(
                 valueListenable: controller.xDialogOpen,
                 builder: (context, xDialogOpen, child) {
-                  return GestureDetector(
-                    onTap: () {
-                      if(xDialogOpen){
-                        controller.xDialogOpen.value = false;
-                        controller.xDialogOpen.notifyListeners();
-                      }
-                    },
-                    child: Container(
-                      width: double.infinity,
-                      height: double.infinity,
-                      decoration: BoxDecoration(
-                          color: AppColors.bgGrey.withOpacity(xDialogOpen?0.65:0)
-                      ),
-                    ),
-                  );
+                  return xDialogOpen
+                      ? GestureDetector(
+                          onTap: () {
+                            if (xDialogOpen) {
+                              controller.xDialogOpen.value = false;
+                              controller.xDialogOpen.notifyListeners();
+                            }
+                          },
+                          child: Container(
+                              width: double.infinity,
+                              height: double.infinity,
+                              decoration: BoxDecoration(
+                                color: Colors.black.withOpacity(0.5),
+                              )),
+                        )
+                      : const SizedBox.shrink();
                 },
               ),
               Column(
@@ -88,62 +83,20 @@ class WeddingPage extends StatelessWidget {
                   ValueListenableBuilder(
                     valueListenable: controller.xDialogOpen,
                     builder: (context, xDialogOpen, child) {
-                      if(xDialogOpen){
+                      if (xDialogOpen) {
                         return Column(
                           children: [
-                            Container(
-                              width: double.infinity,
-                              margin: EdgeInsets.symmetric(
-                                  horizontal: min(30, Get.height * 0.05)
-                              ),
-                              decoration: BoxDecoration(
-                                  color: AppColors.red,
-                                  borderRadius: BorderRadius.circular(10)
-                              ),
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: min(10, Get.height * 0.015),
-                                  vertical: min(10,Get.height * 0.015)
-                              ),
-                              alignment: Alignment.center,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    "Nyaung Kan Aye TharThaNa YeikThar\n(Insein Kyo Kone)",
-                                    textAlign: TextAlign.center,
-                                    style: GoogleFonts.jomolhari(
-                                        color: AppColors.white,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.normal
-                                    ),
-                                  ),
-                                  5.heightBox(),
-                                  Text(
-                                    "Insein Road, Insein Township,\nNear Gyo Kone Bus Stop, Yangon",
-                                    textAlign: TextAlign.center,
-                                    style: GoogleFonts.inter(
-                                        color: AppColors.white,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.normal
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            5.heightBox(),
                             const WeddingMapWidget(),
                           ],
                         );
-                      }
-                      else{
+                      } else {
                         return Container();
                       }
                     },
                   ),
                   Container(
                     padding: EdgeInsets.only(
-                      top: max(20,Get.height * 0.02),
+                      top: max(20, Get.height * 0.02),
                       bottom: Get.height * 0.05,
                     ),
                     child: Row(
@@ -151,14 +104,14 @@ class WeddingPage extends StatelessWidget {
                       children: [
                         ElevatedButton(
                           onPressed: () {
-                            controller.xDialogOpen.value = !controller.xDialogOpen.value;
+                            controller.xDialogOpen.value =
+                                !controller.xDialogOpen.value;
                             controller.xDialogOpen.notifyListeners();
                           },
                           style: ElevatedButton.styleFrom(
                               shape: const CircleBorder(),
                               padding: const EdgeInsets.all(20),
-                              backgroundColor: AppColors.bgYellow
-                          ),
+                              backgroundColor: AppColors.white),
                           child: SvgPicture.string(AppSvgs.weddingMapIcon),
                         )
                       ],
@@ -172,5 +125,4 @@ class WeddingPage extends StatelessWidget {
       },
     );
   }
-
 }
