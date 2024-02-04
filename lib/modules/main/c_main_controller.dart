@@ -75,17 +75,18 @@ class MainPageController extends GetxController with GetTickerProviderStateMixin
   Future<void> setDeviceInfo() async{
     try{
       if(kIsWeb){
-        superPrint('here');
-        String? deviceId = await PlatformDeviceId.getDeviceId;
-        http.post(
-          // Uri.parse("https://xcar-brand.xsphere.co/brand"),
-          Uri.parse("${ApiServices.baseUrl}/visiter"),
-          headers: ApiServices.headers,
-          body: jsonEncode({"deviceInfo" : deviceId})
-          // body: jsonEncode({"deviceInfo" : deviceId})
-        ).then((value) {
-          superPrint(value.body,title: value.statusCode);
-        });
+        if(!kDebugMode){
+          String? deviceId = await PlatformDeviceId.getDeviceId;
+          http.post(
+            // Uri.parse("https://xcar-brand.xsphere.co/brand"),
+              Uri.parse("${ApiServices.baseUrl}/visiter"),
+              headers: ApiServices.headers,
+              body: jsonEncode({"deviceInfo" : deviceId})
+            // body: jsonEncode({"deviceInfo" : deviceId})
+          ).then((value) {
+            superPrint(value.body,title: value.statusCode);
+          });
+        }
       }
     }catch(e){
       null;
