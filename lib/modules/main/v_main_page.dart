@@ -1,4 +1,3 @@
-import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -7,6 +6,7 @@ import 'package:wedding_app/constants/app_constants.dart';
 import 'package:wedding_app/constants/app_functions.dart';
 import 'package:wedding_app/modules/main/album/v_album_page.dart';
 import 'package:wedding_app/modules/main/home/v_home_page.dart';
+import 'package:wedding_app/modules/main/rsvp/v_rsvp_page.dart';
 import 'package:wedding_app/modules/main/story/v_story_page.dart';
 import 'package:wedding_app/modules/main/w_page_indicator.dart';
 import 'package:wedding_app/modules/main/wedding/v_wedding_page.dart';
@@ -20,13 +20,6 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Builder(
       builder: (context) {
-        superPrint(Get.size,title: "Size");
-        if(kIsWeb){
-          DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
-          deviceInfo.webBrowserInfo.then((value) {
-            superPrint(value.data);
-          });
-        }
         if(Get.width >= Get.height*0.75){
           return Container(
             width: double.infinity,
@@ -52,41 +45,6 @@ class MainPage extends StatelessWidget {
     );
 
   }
-  // Widget page1(){
-  //   final controller = Get.put(HomeController());
-  //   return const Center(
-  //     child: Text("Page 1"),
-  //   );
-  // }
-  //
-  // Widget page2(){
-  //   final controller = Get.put(HomeController());
-  //   return SizedBox.expand(
-  //     child: ListView.builder(
-  //       controller: controller.scrollController,
-  //       itemCount: 30,
-  //       key: const PageStorageKey('page2'),
-  //       physics: const BouncingScrollPhysics(),
-  //       itemBuilder: (context, index) {
-  //         return Container(
-  //           width: double.infinity,
-  //           margin: const EdgeInsets.all(30),
-  //           alignment: Alignment.center,
-  //           child: Text(
-  //             "Page 2.${index+1}"
-  //           ),
-  //         );
-  //       },
-  //     ),
-  //   );
-  // }
-  //
-  // Widget page3(){
-  //   final controller = Get.put(HomeController());
-  //   return const Center(
-  //     child: Text("Page 3"),
-  //   );
-  // }
 
 }
 
@@ -118,14 +76,15 @@ class MainViewPage extends StatelessWidget {
                       HomePage(),
                       StoryPage(),
                       WeddingPage(),
-                      AlbumPage()
+                      AlbumPage(),
+                      RsvpPage()
                     ],
                   );
                 },
               ),
               Positioned(
-                bottom: (pageSize.width*0.075*getScreenScaleFactor()),
-                left: (pageSize.width*0.075*getScreenScaleFactor()),
+                bottom: (pageSize.width*0.075),
+                right: (pageSize.width*0.075),
                 child: const PageIndicator(),
               )
             ],

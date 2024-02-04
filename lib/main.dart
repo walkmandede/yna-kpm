@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:wedding_app/constants/app_colors.dart';
+import 'package:wedding_app/modules/_test/mongo_test_page.dart';
 import 'package:wedding_app/modules/main/c_main_controller.dart';
 import 'package:wedding_app/modules/main/story/v_story_page.dart';
 import 'package:wedding_app/modules/main/v_main_page.dart';
@@ -19,9 +21,10 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: AppColors.brown),
         useMaterial3: false,
       ),
+      // home: const MongoTestPage(),
       home: const MainPage(),
     );
   }

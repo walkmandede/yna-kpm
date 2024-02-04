@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wedding_app/constants/app_assets.dart';
@@ -33,6 +35,7 @@ class AlbumPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   (Get.mediaQuery.padding.top).heightBox(),
+                  (min(30,Get.height*0.04).toDouble()).heightBox(),
                   imageWidget(imagePath: AppAssets.a1,),
                   gapWidget(),
                   Row(

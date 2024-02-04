@@ -87,7 +87,7 @@ class AlbumController extends GetxController{
             final maxValue = scrollController.position.maxScrollExtent;
             if(scrolledValue>maxValue){
               //goingToNextPage
-              // mainController.pageController.animateToPage(2, duration: const Duration(milliseconds: 250), curve: Curves.linear);
+              mainController.pageController.animateToPage(4, duration: const Duration(milliseconds: 250), curve: Curves.linear);
 
             }
             else if(scrolledValue<maxValue){

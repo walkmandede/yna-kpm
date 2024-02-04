@@ -2,6 +2,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:wedding_app/constants/app_colors.dart';
+import 'package:wedding_app/constants/app_functions.dart';
 import 'package:wedding_app/constants/app_svgs.dart';
 import 'package:wedding_app/modules/main/c_main_controller.dart';
 
@@ -15,7 +16,8 @@ class PageIndicator extends StatelessWidget {
       valueListenable: controller.indicatorBarAnimatedValue,
       builder: (context, indicatorBarAnimatedValue, child) {
         return Opacity(
-          opacity: indicatorBarAnimatedValue,
+          opacity: 1,
+          // opacity: indicatorBarAnimatedValue,
           child: Container(
             decoration: BoxDecoration(
                 color: AppColors.white,
@@ -32,8 +34,8 @@ class PageIndicator extends StatelessWidget {
               vertical: (Get.height * 0.005),
               horizontal: (Get.height * 0.0075),
             ),
-            child: Row(
-              children: List.generate(4, (index) {
+            child: Column(
+              children: List.generate(5, (index) {
                 String svgData = AppSvgs.homeIcon;
                 switch(index){
                   case 0:
@@ -48,53 +50,66 @@ class PageIndicator extends StatelessWidget {
                   case 3:
                     svgData = AppSvgs.albumIcon;
                     break;
+                  case 4:
+                    svgData = AppSvgs.rsvpIcon;
+                    break;
                 }
 
-                return Container(
-                  width: Get.height * 0.05,
-                  height: Get.height * 0.05,
-                  margin: EdgeInsets.only(
-                    left: index==0?0:Get.height * 0.0005,
-                    right: index==3?0:Get.height * 0.0005,
-                  ),
-                  child: ValueListenableBuilder(
-                    valueListenable: controller.currentPage,
-                    builder: (context, currentPage, child) {
-                      final xSelected = index == currentPage;
-                      return Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          if(xSelected)ValueListenableBuilder(
-                            valueListenable: controller.indicatorTabAnimatedValue,
-                            builder: (context, animatedValue, child) {
-                              return Opacity(
-                                opacity: animatedValue,
-                                child: Container(
-                                  width: double.infinity,
-                                  height: double.infinity,
-                                  decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: AppColors.red
-                                  ),
-                                ),
-                              );
-                            },
-                          ),
-                          Container(
-                            padding: EdgeInsets.all((Get.height * 0.012)),
-                            child: SvgPicture.string(
-                              svgData,
+                return GestureDetector(
+                  onTap: () {
+                    if(true){
+                      controller.pageController.animateToPage(
+                          index,
+                          duration: const Duration(milliseconds: 450),
+                          curve: Curves.linear
+                      );
+                    }
+                    // if(indicatorBarAnimatedValue>0.8){
+                    //   controller.pageController.animateToPage(
+                    //       index,
+                    //       duration: const Duration(milliseconds: 450),
+                    //       curve: Curves.linear
+                    //   );
+                    // }
+                  },
+                  child: Container(
+                    width: Get.height * 0.05,
+                    height: Get.height * 0.05,
+                    margin: EdgeInsets.only(
+                      left: index==0?0:Get.height * 0.0005,
+                      right: index==3?0:Get.height * 0.0005,
+                    ),
+                    child: ValueListenableBuilder(
+                      valueListenable: controller.currentPage,
+                      builder: (context, currentPage, child) {
+                        final xSelected = index == currentPage;
+                        return Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            if(xSelected)Container(
                               width: double.infinity,
                               height: double.infinity,
-                              color: xSelected?AppColors.white:AppColors.brown,
-                              // theme: SvgTheme(
-                              //   currentColor: xSelected?AppColors.white:AppColors.brown,
-                              // ),
+                              decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: AppColors.red
+                              ),
                             ),
-                          ),
-                        ],
-                      );
-                    },
+                            Container(
+                              padding: EdgeInsets.all((Get.height * 0.012)),
+                              child: SvgPicture.string(
+                                svgData,
+                                width: double.infinity,
+                                height: double.infinity,
+                                color: xSelected?AppColors.white:AppColors.brown,
+                                // theme: SvgTheme(
+                                //   currentColor: xSelected?AppColors.white:AppColors.brown,
+                                // ),
+                              ),
+                            ),
+                          ],
+                        );
+                      },
+                    ),
                   ),
                 );
 

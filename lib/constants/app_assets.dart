@@ -13,6 +13,7 @@ class AppAssets{
   static String storyMale = "assets/images/story_male.png";
   static String storyFemale = "assets/images/story_female.png";
   static String storyBg = "assets/images/story_bg.png";
+  static String rsvpBg = "assets/images/rsvp_bg.png";
   //wedding
   static String weddingBg = "assets/images/wedding_bg.png";
   //album

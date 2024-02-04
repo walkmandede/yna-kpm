@@ -17,9 +17,12 @@ dependencies:
   cupertino_icons: ^1.0.2
   get:
   google_fonts:
-  flutter_map:
+  flutter_map: ^6.1.0
   flutter_svg: ^2.0.9
-  device_info_plus: ^9.1.2
+  latlong2:
+  http:
+#  mongo_dart:
+  platform_device_id: ^1.0.1
 
 
 dev_dependencies:
