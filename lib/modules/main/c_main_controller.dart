@@ -69,10 +69,26 @@ class MainPageController extends GetxController with GetTickerProviderStateMixin
   Future<void> precacheImages() async{
     try{
       await Future.wait([
-        precacheImage(AssetImage(AppAssets.homeBg), Get.context!),
-        precacheImage(AssetImage(AppAssets.weddingBg), Get.context!),
-        precacheImage(AssetImage(AppAssets.rsvpBg), Get.context!),
-        precacheImage(AssetImage(AppAssets.storyBg), Get.context!),
+        precacheImage(Image.asset(AppAssets.homeBg).image, Get.context!),
+        precacheImage(Image.asset(AppAssets.homeBg1).image, Get.context!),
+        precacheImage(Image.asset(AppAssets.homeBg2).image, Get.context!),
+        precacheImage(Image.asset(AppAssets.homeBg3).image, Get.context!),
+        precacheImage(Image.asset(AppAssets.homeBg4).image, Get.context!),
+        precacheImage(Image.asset(AppAssets.homeBg5).image, Get.context!),
+        precacheImage(Image.asset(AppAssets.homeBg6).image, Get.context!),
+        precacheImage(Image.asset(AppAssets.weddingBg).image, Get.context!),
+        precacheImage(Image.asset(AppAssets.rsvpBg).image, Get.context!),
+        precacheImage(Image.asset(AppAssets.storyBg).image, Get.context!),
+        precacheImage(Image.asset(AppAssets.a1).image, Get.context!),
+        precacheImage(Image.asset(AppAssets.a2).image, Get.context!),
+        precacheImage(Image.asset(AppAssets.a3).image, Get.context!),
+        precacheImage(Image.asset(AppAssets.a4).image, Get.context!),
+        precacheImage(Image.asset(AppAssets.a5).image, Get.context!),
+        precacheImage(Image.asset(AppAssets.a6).image, Get.context!),
+        precacheImage(Image.asset(AppAssets.a7).image, Get.context!),
+        precacheImage(Image.asset(AppAssets.a8).image, Get.context!),
+        precacheImage(Image.asset(AppAssets.a9).image, Get.context!),
+        precacheImage(Image.asset(AppAssets.a10).image, Get.context!),
       ]);
 
     }

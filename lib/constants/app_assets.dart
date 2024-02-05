@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
 
 class AppAssets {
+  //webViewBg
+  static String webViewBg = "assets/images/web_view_bg.png";
   //home
   static String homeBg = "assets/images/home_bg.png";
+  static String homeBg1 = "assets/images/bg1.png";
+  static String homeBg2 = "assets/images/bg2.png";
+  static String homeBg3 = "assets/images/bg3.png";
+  static String homeBg4 = "assets/images/bg4.png";
+  static String homeBg5 = "assets/images/bg5.png";
+  static String homeBg6 = "assets/images/bg6.png";
   //story
   static String story1 = "assets/images/story_1.png";
   static String story2 = "assets/images/story_2.png";

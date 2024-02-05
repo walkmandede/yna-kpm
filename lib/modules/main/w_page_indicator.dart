@@ -16,8 +16,8 @@ class PageIndicator extends StatelessWidget {
       valueListenable: controller.indicatorBarAnimatedValue,
       builder: (context, indicatorBarAnimatedValue, child) {
         return Opacity(
-          opacity: 1,
-          // opacity: indicatorBarAnimatedValue,
+          // opacity: 1,
+          opacity: indicatorBarAnimatedValue,
           child: Container(
             decoration: BoxDecoration(
                 color: AppColors.white,

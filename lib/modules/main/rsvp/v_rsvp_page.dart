@@ -216,6 +216,7 @@ class RsvpPage extends StatelessWidget {
                     ),
                     10.heightBox(),
                     Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(
                           width: layoutSize.width * 0.18,
@@ -230,7 +231,7 @@ class RsvpPage extends StatelessWidget {
                         ),
                         2.widthBox(),
                         const SelectableText(
-                          "09756690082, 09756690081",
+                          "09756690082,\n09756690081",
                           style: TextStyle(
                               fontSize: 16,
                               color: Colors.black

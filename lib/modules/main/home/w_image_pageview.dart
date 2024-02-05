@@ -15,12 +15,12 @@ class ImagePageview extends StatefulWidget {
 class _ImagePageviewState extends State<ImagePageview> {
   PageController pageController = PageController();
   List<String> imageList = [
-    'assets/images/bg1.png',
-    'assets/images/bg2.png',
-    'assets/images/bg3.png',
-    'assets/images/bg4.png',
-    'assets/images/bg5.png',
-    'assets/images/bg6.png',
+    AppAssets.homeBg1,
+    AppAssets.homeBg2,
+    AppAssets.homeBg3,
+    AppAssets.homeBg4,
+    AppAssets.homeBg5,
+    AppAssets.homeBg6,
   ];
   // Timer timer = Timer(Duration.zero, () {});
   @override

@@ -11,6 +11,7 @@ import 'package:wedding_app/modules/main/story/v_story_page.dart';
 import 'package:wedding_app/modules/main/w_page_indicator.dart';
 import 'package:wedding_app/modules/main/wedding/v_wedding_page.dart';
 
+import '../../constants/app_assets.dart';
 import 'c_main_controller.dart';
 
 class MainPage extends StatelessWidget {
@@ -25,9 +26,19 @@ class MainPage extends StatelessWidget {
             width: double.infinity,
             height: double.infinity,
             color: AppColors.bgYellow,
-            child: const Stack(
+            child: Stack(
               alignment: Alignment.center,
               children: [
+                Container(
+                  width: double.infinity,
+                  height: double.infinity,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: Image.asset(AppAssets.webViewBg).image,
+                      fit: BoxFit.fill,
+                    )
+                  ),
+                ),
                 AspectRatio(
                   aspectRatio: 390/844,
                   child: MainViewPage(),

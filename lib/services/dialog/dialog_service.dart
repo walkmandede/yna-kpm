@@ -36,6 +36,9 @@ class DialogService{
               if(onClickYes!=null){
                 onClickYes();
               }
+              else{
+                dismissDialog();
+              }
             },
           ),
         );

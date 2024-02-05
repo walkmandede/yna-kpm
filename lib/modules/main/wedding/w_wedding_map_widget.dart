@@ -28,76 +28,81 @@ class WeddingMapWidget extends StatelessWidget {
           color: AppColors.bgYellow,
           border: Border.all(),
           borderRadius: BorderRadius.circular(12)),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(11),
-        child: FlutterMap(
-          options: MapOptions(
-              initialCenter: controller.weddingLocation, initialZoom: 16),
-          mapController: controller.mapController,
-          children: [
-            TileLayer(
-              urlTemplate:
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          final layoutSize = Size(constraints.maxWidth, constraints.maxHeight);
+          return ClipRRect(
+            borderRadius: BorderRadius.circular(11),
+            child: FlutterMap(
+              options: MapOptions(
+                  initialCenter: controller.weddingLocation, initialZoom: 16),
+              mapController: controller.mapController,
+              children: [
+                TileLayer(
+                  urlTemplate:
                   "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png",
-            ),
-            MarkerLayer(
-              markers: [
-                // Marker(
-                //     point: controller.weddingLocation,
-                //     child: Icon(Icons.circle)),
-                Marker(
-                    width: Get.width - 20,
-                    height: 235,
-                    point: controller.weddingLocation,
-                    alignment: Alignment.center,
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Container(
-                          width: double.infinity,
-                          margin: EdgeInsets.symmetric(
-                              horizontal: min(30, Get.height * 0.05)),
-                          decoration: BoxDecoration(
-                              color: AppColors.red,
-                              borderRadius: BorderRadius.circular(10)),
-                          padding: EdgeInsets.symmetric(
-                              horizontal: min(10, Get.height * 0.015),
-                              vertical: min(10, Get.height * 0.015)),
-                          alignment: Alignment.center,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text(
-                                "Nyaung Kan Aye TharThaNa YeikThar\n(Insein Kyo Kone)",
-                                textAlign: TextAlign.center,
-                                style: GoogleFonts.jomolhari(
-                                    color: AppColors.white,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.normal),
+                ),
+                MarkerLayer(
+                  markers: [
+                    // Marker(
+                    //     point: controller.weddingLocation,
+                    //     child: Icon(Icons.circle)),
+                    Marker(
+                        width: layoutSize.width - 20,
+                        height: 235,
+                        point: controller.weddingLocation,
+                        alignment: Alignment.center,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Container(
+                              width: double.infinity,
+                              margin: EdgeInsets.symmetric(
+                                  horizontal: min(30, Get.height * 0.05)),
+                              decoration: BoxDecoration(
+                                  color: AppColors.red,
+                                  borderRadius: BorderRadius.circular(10)),
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: min(10, Get.height * 0.015),
+                                  vertical: min(10, Get.height * 0.015)),
+                              alignment: Alignment.center,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "Nyaung Kan Aye TharThaNa YeikThar\n(Insein Kyo Kone)",
+                                    textAlign: TextAlign.center,
+                                    style: GoogleFonts.jomolhari(
+                                        color: AppColors.white,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.normal),
+                                  ),
+                                  5.heightBox(),
+                                  Text(
+                                    "Insein Road, Insein Township,\nNear Gyo Kone Bus Stop, Yangon",
+                                    textAlign: TextAlign.center,
+                                    style: GoogleFonts.inter(
+                                        color: AppColors.white,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w300),
+                                  ),
+                                ],
                               ),
-                              5.heightBox(),
-                              Text(
-                                "Insein Road, Insein Township,\nNear Gyo Kone Bus Stop, Yangon",
-                                textAlign: TextAlign.center,
-                                style: GoogleFonts.inter(
-                                    color: AppColors.white,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w300),
-                              ),
-                            ],
-                          ),
-                        ),
-                        SvgPicture.string(
-                          AppSvgs.markerIcon,
-                          width: 35,
-                          height: 35,
-                        ),
-                      ],
-                    )),
+                            ),
+                            SvgPicture.string(
+                              AppSvgs.markerIcon,
+                              width: 35,
+                              height: 35,
+                            ),
+                          ],
+                        )),
+                  ],
+                )
               ],
-            )
-          ],
-        ),
+            ),
+          );
+        },
       ),
     );
   }
