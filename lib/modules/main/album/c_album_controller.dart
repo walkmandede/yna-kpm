@@ -65,6 +65,7 @@ class AlbumController extends GetxController {
 
     //setScrollListener
     scrollController.addListener(() async {
+      mainController.animatedIndicatorBar();
       if (mainController.pageController.page == 3) {
         final scrolledValue = scrollController.position.pixels;
         switch (currentScrollState.value) {

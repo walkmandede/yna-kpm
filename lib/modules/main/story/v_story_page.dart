@@ -10,6 +10,17 @@ import 'package:wedding_app/modules/main/story/c_story_controller.dart';
 
 import '../../../constants/app_assets.dart';
 
+
+String storyData = """First time we met:
+Our story began during our high school days. In those teenage years, I handed her a heartfelt love letter. Unfortunately, we had to put our connection on hold as the demands of our studies took center stage. However, fate had a way of bringing us back together. We met again when we became university students, thanks to mutual friends’ connections. Seeing her familiar face sparked memories of that long-forgotten love letter. As the days turned into months, our connection rekindled. On the memorable date of August 23, 2013, we took a leap of faith and officially started dating.
+
+From Milestone to Memories:
+Our 11-Year Journey
+In our 11 years of dating, we've faced life's challenges together, growing stronger with each milestone. Through difficulties, we've developed a deep understanding and connection, standing united. Some highlights include unforgettable moments in Ngapali and cherished memories in the captivating Ngwe Saung. These travel experiences have been more than destinations; they've been the backdrop to our growth, laughter, and bond strengthening. As we continue this remarkable journey, the adventures we've had serve as milestones in our shared story.
+
+Our engagement (26 Nov 2023):
+Our journey, filled with ups and downs, brought us closer. It was during one of those challenging moments that we realized the depth of our love and commitment. In a simple, heartfelt moment, amidst life's trials, we got engaged.""";
+
 class StoryPage extends StatelessWidget {
   const StoryPage({super.key});
 
@@ -132,7 +143,7 @@ class StoryPage extends StatelessWidget {
                     gap3(),
                     title("First time we met"),
                     gap2(),
-                    bodyText("Our story began in the hallowed halls of high school. In those teenage years, a heartfelt love letter passed from my hands to hers, unfortunately, had to be put on hold as the demands of our studies took center stage."),
+                    bodyText("Our story began during our high school days. In those teenage years, I handed her a heartfelt love letter. Unfortunately, we had to put our connection on hold as the demands of our studies took center stage."),
                     gap2(),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -157,9 +168,9 @@ class StoryPage extends StatelessWidget {
                         Expanded(
                           child: Column(
                             children: [
-                              bodyText("However, fate had a way of bringing us back together. It was in the realm of university that we found ourselves reunited, thanks to mutual friends’ connection. The familiar face sparked memories of that long-forgotten  love letter."),
+                              bodyText("However, fate had a way of bringing us back together. We met again when we became university students, thanks to mutual friends’ connections. Seeing her familiar face sparked memories of that long-forgotten love letter."),
                               gap1(),
-                              bodyText("As the days turned into months, our connection rekindled. A year of playful flirting paved the way for a deeper understanding of each other. On the memorable date of August 23, 2013, we took a leap of faith and officially started dating.")
+                              bodyText("As the days turned into months, our connection rekindled. On the memorable date of August 23, 2013, we took a leap of faith and officially started dating")
                             ],
                           ),
                         )
@@ -168,28 +179,29 @@ class StoryPage extends StatelessWidget {
                     gap3(),
                     title("From Milestone to Memories:\nOur 11-Year Journey"),
                     gap2(),
-                    bodyText("In our 11 years of dating, we've harnessed the strength of a mindstone to travel through life's challenges together. Through difficulties, we've forged a deep understanding and connection, standing resilient as a united front."),
+                    bodyText("In our 11 years of dating, we've faced life's challenges together, growing stronger with each milestone. Through difficulties, we've developed a deep understanding and connection, standing united."),
                     gap2(),
-                    bodyText("Among the highlights of our journey, we shared unforgettable moments in Ngapali and created cherished memories in the captivating Ngwe Saung. These travel experiences have been more than just destinations; they've been the backdrop to our growth, laughter, and the strengthening of our bond. As we continue this remarkable journey, the adventures we've undertaken serve as milestones in our shared story."),
+                    bodyText("Some highlights include unforgettable moments in Ngapali and cherished memories in the captivating Ngwe Saung. These travel experiences have been more than destinations; they've been the backdrop to our growth, laughter, and bond strengthening. As we continue this remarkable journey, the adventures we've had serve as milestones in our shared story."),
                     gap2(),
-                    Row(
-                      children: [
-                        Expanded(
-                          flex: 8,
-                          child: Image.asset(AppAssets.story3),
-                        ),
-                        Expanded(
-                          flex: 6,
-                          child: Image.asset(AppAssets.story4),
-                        ),
-                      ],
-                    ),
+                    Image.asset(AppAssets.story3in1),
+                    // Row(
+                    //   children: [
+                    //     Expanded(
+                    //       flex: 8,
+                    //       child: Image.asset(AppAssets.story3),
+                    //     ),
+                    //     Expanded(
+                    //       flex: 6,
+                    //       child: Image.asset(AppAssets.story4),
+                    //     ),
+                    //   ],
+                    // ),
                     gap3(),
                     title("Our engagement"),
                     gap1(),
                     subTitle("26 Nov, 2023 @ Somewhere"),
                     gap2(),
-                    bodyText("Our journey, marked by ups and downs, brought us closer together. It was during one of those challenging moments that we realized the depth of our love and commitment\n\nIn a simple, heartfelt moment, amidst the backdrop of life's trials, we got engaged."),
+                    bodyText("Our journey, filled with ups and downs, brought us closer. It was during one of those challenging moments that we realized the depth of our love and commitment. In a simple, heartfelt moment, amidst life's trials, we got engaged."),
                     gap2(),
                     SizedBox(
                       width: double.infinity,

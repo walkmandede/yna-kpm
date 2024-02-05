@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class AppAssets {
   //webViewBg
   static String webViewBg = "assets/images/web_view_bg.png";
+  static String loadingGif = "assets/images/loading_gif.gif";
   //home
   static String homeBg = "assets/images/home_bg.png";
   static String homeBg1 = "assets/images/bg1.png";
@@ -12,6 +13,7 @@ class AppAssets {
   static String homeBg5 = "assets/images/bg5.png";
   static String homeBg6 = "assets/images/bg6.png";
   //story
+  static String story3in1 = "assets/images/story_3in1.png";
   static String story1 = "assets/images/story_1.png";
   static String story2 = "assets/images/story_2.png";
   static String story3 = "assets/images/story_3.png";

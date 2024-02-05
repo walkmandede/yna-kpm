@@ -57,13 +57,14 @@ class MainPageController extends GetxController with GetTickerProviderStateMixin
     currentPage.value = pageIndex;
     currentPage.notifyListeners();
 
+  }
 
+  void animatedIndicatorBar(){
     indicatorBarAnimation!.reset();
     indicatorBarAnimation!.forward().then((value) async{
       await Future.delayed(const Duration(milliseconds: 3500));
       indicatorBarAnimation!.reverse();
     });
-
   }
   
   Future<void> precacheImages() async{
@@ -102,18 +103,16 @@ class MainPageController extends GetxController with GetTickerProviderStateMixin
   Future<void> setDeviceInfo() async{
     try{
       if(kIsWeb){
-        if(!kDebugMode){
-          String? deviceId = await PlatformDeviceId.getDeviceId;
-          http.post(
-            // Uri.parse("https://xcar-brand.xsphere.co/brand"),
-              Uri.parse("${ApiServices.baseUrl}/visiter"),
-              headers: ApiServices.headers,
-              body: jsonEncode({"deviceInfo" : deviceId})
-            // body: jsonEncode({"deviceInfo" : deviceId})
-          ).then((value) {
-            superPrint(value.body,title: value.statusCode);
-          });
-        }
+        String? deviceId = await PlatformDeviceId.getDeviceId;
+        http.post(
+          // Uri.parse("https://xcar-brand.xsphere.co/brand"),
+            Uri.parse("${ApiServices.baseUrl}/visiter"),
+            headers: ApiServices.headers,
+            body: jsonEncode({"deviceInfo" : deviceId})
+          // body: jsonEncode({"deviceInfo" : deviceId})
+        ).then((value) {
+          superPrint(value.body,title: value.statusCode);
+        });
       }
     }catch(e){
       null;

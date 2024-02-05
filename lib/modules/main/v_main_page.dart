@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:wedding_app/constants/app_colors.dart';
 import 'package:wedding_app/constants/app_constants.dart';
 import 'package:wedding_app/constants/app_functions.dart';
@@ -39,7 +40,7 @@ class MainPage extends StatelessWidget {
                     )
                   ),
                 ),
-                AspectRatio(
+                const  AspectRatio(
                   aspectRatio: 390/844,
                   child: MainViewPage(),
                 )
@@ -73,10 +74,22 @@ class MainViewPage extends StatelessWidget {
           valueListenable: controller.xCachedCompleted,
           builder: (context, xCachedCompleted, child) {
             if(!xCachedCompleted){
-              return const Material(
-                child: Center(
-                  child: Text("Please wait while loading..."),
-                ),
+              return Material(
+                child: Container(
+                  width: double.infinity,
+                  height: double.infinity,
+                  decoration: BoxDecoration(
+                    color: AppColors.bgYellow,
+                  ),
+                  alignment: Alignment.center,
+                  child: Text(
+                    "Loading please wait ...\nThank for visiting our wedding website",
+                    style: GoogleFonts.alexBrush(
+                      fontSize: 26,
+                      color: AppColors.red
+                    ),
+                  ),
+                )
               );
             }
             else{
@@ -120,4 +133,5 @@ class MainViewPage extends StatelessWidget {
     );
   }
 }
+
 

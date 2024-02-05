@@ -57,6 +57,7 @@ class HomeController extends GetxController{
       }
       DialogService().dismissDialog();
       if(response==null){
+
         DialogService().showTransactionDialog(text: "Something went wrong, please try again!");
 
       }

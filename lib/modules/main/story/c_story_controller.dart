@@ -28,6 +28,7 @@ class StoryController extends GetxController{
     MainPageController mainController = Get.find();
     //setScrollListener
     scrollController.addListener(() async{
+      mainController.animatedIndicatorBar();
       if(mainController.pageController.page == 1){
         final scrolledValue = scrollController.position.pixels;
         switch(currentScrollState.value){
@@ -40,6 +41,7 @@ class StoryController extends GetxController{
             else if(scrolledValue<0){
               //goingToPrevPage
               mainController.pageController.previousPage(duration: const Duration(milliseconds: 600), curve: Curves.linear);
+              mainController.animatedIndicatorBar();
               // mainController.pageController.animateToPage(0, duration: const Duration(milliseconds: 250), curve: Curves.linear);
             }
             break;
