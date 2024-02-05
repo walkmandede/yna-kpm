@@ -199,7 +199,7 @@ class StoryPage extends StatelessWidget {
                     gap3(),
                     title("Our engagement"),
                     gap1(),
-                    subTitle("26 Nov, 2023 @ Somewhere"),
+                    subTitle("26 Nov, 2023"),
                     gap2(),
                     bodyText("Our journey, filled with ups and downs, brought us closer. It was during one of those challenging moments that we realized the depth of our love and commitment. In a simple, heartfelt moment, amidst life's trials, we got engaged."),
                     gap2(),

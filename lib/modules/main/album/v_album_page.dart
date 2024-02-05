@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:wedding_app/constants/app_assets.dart';
 import 'package:wedding_app/constants/app_colors.dart';
 import 'package:wedding_app/constants/app_extensions.dart';
+import 'package:wedding_app/constants/app_svgs.dart';
 
 import 'package:wedding_app/modules/main/album/v_album_detail_view.dart';
 
@@ -150,7 +152,7 @@ class AlbumPage extends StatelessWidget {
                     padding: const EdgeInsets.all(15),
                     margin: const EdgeInsets.only(bottom: 25),
                     decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: AppColors.bgYellow,
                         shape: BoxShape.circle,
                         boxShadow: [
                           BoxShadow(
@@ -159,10 +161,7 @@ class AlbumPage extends StatelessWidget {
                               spreadRadius: 4,
                               offset: const Offset(0, 4))
                         ]),
-                    child: const Icon(
-                      Icons.rectangle,
-                      size: 30,
-                    ),
+                    child: SvgPicture.string(AppSvgs.albumViewIcon,width: 30,height: 30,)
                   ),
                 ),
               )

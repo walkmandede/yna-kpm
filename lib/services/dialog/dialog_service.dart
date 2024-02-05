@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import '../../constants/app_colors.dart';
 import '../../constants/app_constants.dart';
+import '../../constants/app_functions.dart';
 import 'dialogs/loading_dialog.dart';
 import 'dialogs/transaction_dialog.dart';
 
@@ -93,7 +94,35 @@ class DialogService{
     }
   }
 
-
+  void showFullScreenKeyboard({required TextEditingController txtCtrl}){
+    Get.bottomSheet(
+        Container(
+          padding: const EdgeInsets.symmetric(
+              horizontal: 10,
+              vertical: 10
+          ),
+          child: TextField(
+            autofocus: true,
+            controller: txtCtrl,
+            onTapOutside: (event) {
+              dismissKeyboard();
+            },
+            onEditingComplete: () {
+              // Get.back(canPop: false);
+            },
+            onSubmitted: (value) {
+              Get.back(canPop: false);
+            },
+          ),
+        ),
+        backgroundColor: AppColors.white,
+        shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(
+                top: Radius.circular(10)
+            )
+        )
+    );
+  }
 
 }
 
