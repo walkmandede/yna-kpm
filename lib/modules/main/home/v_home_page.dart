@@ -89,12 +89,14 @@ class HomePage extends StatelessWidget {
                       }
                     },
                   ),
-                  Text(
-                    "#ynakpmlove",
-                    style: TextStyle(
-                        color: AppColors.bgGrey.withOpacity(0.5),
-                        fontWeight: FontWeight.bold,
-                        fontSize: 30),
+                  IgnorePointer(
+                    child: Text(
+                      "#ynakpmlove",
+                      style: TextStyle(
+                          color: AppColors.bgGrey.withOpacity(0.5),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 30),
+                    ),
                   ),
                   Container(
                     padding: EdgeInsets.only(

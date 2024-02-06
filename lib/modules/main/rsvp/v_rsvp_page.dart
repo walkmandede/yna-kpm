@@ -249,18 +249,22 @@ class RsvpPage extends StatelessWidget {
                             child: Text(
                               "KPay",
                               style: TextStyle(
-                                  fontSize: 16,
+                                  fontSize: 14,
                                   fontWeight: FontWeight.bold,
                                   color: AppColors.gold
                               ),
                             ),
                           ),
                           2.widthBox(),
-                          const SelectableText(
-                            "09756690082,\n09756690081",
-                            style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.black
+                          const Flexible(
+                            child: FittedBox(
+                              child: SelectableText(
+                                "09756690082,09756690081",
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    color: Colors.black
+                                ),
+                              ),
                             ),
                           )
                         ],
@@ -273,18 +277,22 @@ class RsvpPage extends StatelessWidget {
                             child: Text(
                               "CB",
                               style: TextStyle(
-                                  fontSize: 16,
+                                  fontSize: 14,
                                   fontWeight: FontWeight.bold,
                                   color: AppColors.gold
                               ),
                             ),
                           ),
                           2.widthBox(),
-                          const SelectableText(
-                            "0016 6005 0009 6555",
-                            style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.black
+                          const Flexible(
+                            child: FittedBox(
+                              child: SelectableText(
+                                "0016 6005 0009 6555",
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    color: Colors.black
+                                ),
+                              ),
                             ),
                           )
                         ],
@@ -297,18 +305,22 @@ class RsvpPage extends StatelessWidget {
                             child: Text(
                               "AYA",
                               style: TextStyle(
-                                  fontSize: 16,
+                                  fontSize: 14,
                                   fontWeight: FontWeight.bold,
                                   color: AppColors.gold
                               ),
                             ),
                           ),
                           2.widthBox(),
-                          const SelectableText(
-                            "20009398700",
-                            style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.black
+                          const Flexible(
+                            child: FittedBox(
+                              child: SelectableText(
+                                "20009398700",
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    color: Colors.black
+                                ),
+                              ),
                             ),
                           )
                         ],
