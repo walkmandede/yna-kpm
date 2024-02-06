@@ -96,33 +96,44 @@ class MainViewPage extends StatelessWidget {
               return Scaffold(
                 body: Stack(
                   children: [
-                    ValueListenableBuilder(
-                      valueListenable: controller.currentPage,
-                      builder: (context, currentPage, child) {
-                        final xShouldScroll = currentPage==1||currentPage==3;
-                        return PageView(
-                          controller: controller.pageController,
-                          scrollDirection: Axis.vertical,
-                          physics: xShouldScroll?const NeverScrollableScrollPhysics():const ClampingScrollPhysics(),
-                          onPageChanged: (value) {
-                            controller.onPageChange(pageIndex: value);
-                          },
-                          allowImplicitScrolling: false,
-                          children: const[
-                            HomePage(),
-                            StoryPage(),
-                            WeddingPage(),
-                            AlbumPage(),
-                            RsvpPage()
-                          ],
-                        );
-                      },
-                    ),
-                    Positioned(
-                      bottom: (pageSize.width*0.075),
-                      right: (pageSize.width*0.075),
-                      child: const PageIndicator(),
+                    SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          HomePage(),
+                          StoryPage(),
+                          WeddingPage(),
+                          AlbumPage(),
+                          RsvpPage()
+                        ],
+                      ),
                     )
+                    // ValueListenableBuilder(
+                    //   valueListenable: controller.currentPage,
+                    //   builder: (context, currentPage, child) {
+                    //     final xShouldScroll = currentPage==1||currentPage==3;
+                    //     return PageView(
+                    //       controller: controller.pageController,
+                    //       scrollDirection: Axis.vertical,
+                    //       physics: xShouldScroll?const NeverScrollableScrollPhysics():const ClampingScrollPhysics(),
+                    //       onPageChanged: (value) {
+                    //         controller.onPageChange(pageIndex: value);
+                    //       },
+                    //       allowImplicitScrolling: false,
+                    //       children: const[
+                    //         HomePage(),
+                    //         StoryPage(),
+                    //         WeddingPage(),
+                    //         AlbumPage(),
+                    //         RsvpPage()
+                    //       ],
+                    //     );
+                    //   },
+                    // ),
+                    // Positioned(
+                    //   bottom: (pageSize.width*0.075),
+                    //   right: (pageSize.width*0.075),
+                    //   child: const PageIndicator(),
+                    // )
                   ],
                 ),
               );

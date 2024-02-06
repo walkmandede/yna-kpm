@@ -29,7 +29,7 @@ class RsvpPage extends StatelessWidget {
         final layoutSize = Size(constraints.maxWidth,constraints.maxHeight);
         return Container(
           width: double.infinity,
-          height: double.infinity,
+          // height: Get.height,
           decoration: BoxDecoration(
               image: DecorationImage(
                   image: Image.asset(AppAssets.rsvpBg).image,
@@ -42,7 +42,6 @@ class RsvpPage extends StatelessWidget {
           ),
           child: Container(
             width: double.infinity,
-            height: double.infinity,
             padding: EdgeInsets.all(
               min(10, layoutSize.width*0.01)
             ),
@@ -56,7 +55,6 @@ class RsvpPage extends StatelessWidget {
             ),
             child: Container(
               width: double.infinity,
-              height: double.infinity,
               padding: EdgeInsets.symmetric(
                 horizontal: min(20, layoutSize.width*0.025),
                 vertical: min(20, layoutSize.width*0.035)

@@ -24,7 +24,7 @@ class HomePage extends StatelessWidget {
         final layoutSize = Size(constraints.maxWidth, constraints.maxHeight);
         return Container(
           width: double.infinity,
-          height: double.infinity,
+          height: Get.height,
           // decoration: BoxDecoration(
           //     image: DecorationImage(
           //         image: Image.asset(AppAssets.homeBg).image,
@@ -38,7 +38,7 @@ class HomePage extends StatelessWidget {
               Column(
                 children: [
                   (Get.mediaQuery.padding.top).heightBox(),
-                  (layoutSize.height * 0.005).heightBox(),
+                  (Get.height * 0.005).heightBox(),
                   Container(
                     padding: EdgeInsets.symmetric(
                         horizontal: (layoutSize.width) * 0.1),
@@ -73,7 +73,7 @@ class HomePage extends StatelessWidget {
                                 color: Colors.black.withOpacity(0.5)),
                           ),
                         )
-                      : SizedBox.shrink();
+                      : const SizedBox.shrink();
                 },
               ),
               Column(

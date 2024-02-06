@@ -32,7 +32,7 @@ class StoryPage extends StatelessWidget {
       data: MediaQuery.of(context).copyWith(textScaleFactor: 1),
       child: Container(
         width: double.infinity,
-        height: double.infinity,
+        // height: double.infinity,
         decoration: BoxDecoration(
             image: DecorationImage(
               image: Image.asset(AppAssets.storyBg).image,
@@ -45,172 +45,167 @@ class StoryPage extends StatelessWidget {
         child: LayoutBuilder(
           builder: (context, constraints) {
             final pageSize = Size(constraints.maxWidth,constraints.maxHeight);
-            return SingleChildScrollView(
-              controller: controller.scrollController,
-              physics: const BouncingScrollPhysics(),
-              key: const PageStorageKey("Story Page"),
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    (Get.mediaQuery.padding.top).heightBox(),
-                    Container(
-                      width: double.infinity,
-                      margin: EdgeInsets.symmetric(
-                          vertical: (Get.height * 0.005)
-                      ),
-                      alignment: Alignment.center,
-                      child: Text(
-                          "Our Story",
-                          style: GoogleFonts.alexBrush(
-                            fontSize: 40,
-                          )
-                      ),
+            return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  (Get.mediaQuery.padding.top).heightBox(),
+                  Container(
+                    width: double.infinity,
+                    margin: EdgeInsets.symmetric(
+                        vertical: (Get.height * 0.005)
                     ),
-                    gap2(),
-                    SizedBox(
-                      width: double.infinity,
-                      child: AspectRatio(
-                        aspectRatio: 353/436,
-                        child: Image.asset(AppAssets.storyMale),
-                      ),
-                    ),
-                    gap1(),
-                    Container(
-                      width: double.infinity,
-                      margin: EdgeInsets.symmetric(
-                          vertical: (Get.height * 0.005)
-                      ),
-                      alignment: Alignment.centerLeft,
-                      child: Row(
-                        children: [
-                          Text(
-                              "Hello, I am ",
-                              style: GoogleFonts.inter(
-                                fontSize: 16,
-                              )
-                          ),
-                          Text(
-                              "Yan Nyein Aung ",
-                              style: GoogleFonts.inter(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold
-                              )
-                          ),
-                        ],
-                      ),
-                    ),
-                    gap2(),
-                    SizedBox(
-                      width: double.infinity,
-                      child: AspectRatio(
-                        aspectRatio: 353/436,
-                        child: Image.asset(AppAssets.storyFemale),
-                      ),
-                    ),
-                    gap1(),
-                    Container(
-                      width: double.infinity,
-                      margin: EdgeInsets.symmetric(
-                          vertical: (Get.height * 0.005)
-                      ),
-                      alignment: Alignment.centerLeft,
-                      child: Row(
-                        children: [
-                          Text(
-                              "and I am ",
-                              style: GoogleFonts.inter(
-                                fontSize: 16,
-                              )
-                          ),
-                          Text(
-                              "Kyi Phyu Mon. ",
-                              style: GoogleFonts.inter(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold
-                              )
-                          ),
-                        ],
-                      ),
-                    ),
-                    gap2(),
-                    Text(
-                        "Our story start with . . .",
-                        style: GoogleFonts.inter(
-                            fontSize: 16,
-                            fontWeight: FontWeight.normal
+                    alignment: Alignment.center,
+                    child: Text(
+                        "Our Story",
+                        style: GoogleFonts.alexBrush(
+                          fontSize: 40,
                         )
                     ),
-                    gap3(),
-                    title("First time we met"),
-                    gap2(),
-                    bodyText("Our story began during our high school days. In those teenage years, I handed her a heartfelt love letter. Unfortunately, we had to put our connection on hold as the demands of our studies took center stage."),
-                    gap2(),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                  ),
+                  gap2(),
+                  SizedBox(
+                    width: double.infinity,
+                    child: AspectRatio(
+                      aspectRatio: 353/436,
+                      child: Image.asset(AppAssets.storyMale),
+                    ),
+                  ),
+                  gap1(),
+                  Container(
+                    width: double.infinity,
+                    margin: EdgeInsets.symmetric(
+                        vertical: (Get.height * 0.005)
+                    ),
+                    alignment: Alignment.centerLeft,
+                    child: Row(
                       children: [
-                        SizedBox(
-                          width: pageSize.width * 0.3,
-                          child: Column(
-                            children: [
-                              Image.asset(
-                                AppAssets.story1,
-                                width: double.infinity,
-                              ),
-                              gap1(),
-                              Image.asset(
-                                AppAssets.story2,
-                                width: double.infinity,
-                              ),
-                            ],
-                          ),
+                        Text(
+                            "Hello, I am ",
+                            style: GoogleFonts.inter(
+                              fontSize: 16,
+                            )
                         ),
-                        10.widthBox(),
-                        Expanded(
-                          child: Column(
-                            children: [
-                              bodyText("However, fate had a way of bringing us back together. We met again when we became university students, thanks to mutual friends’ connections. Seeing her familiar face sparked memories of that long-forgotten love letter."),
-                              gap1(),
-                              bodyText("As the days turned into months, our connection rekindled. On the memorable date of August 23, 2013, we took a leap of faith and officially started dating")
-                            ],
-                          ),
-                        )
+                        Text(
+                            "Yan Nyein Aung ",
+                            style: GoogleFonts.inter(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold
+                            )
+                        ),
                       ],
                     ),
-                    gap3(),
-                    title("From Milestone to Memories:\nOur 11-Year Journey"),
-                    gap2(),
-                    bodyText("In our 11 years of dating, we've faced life's challenges together, growing stronger with each milestone. Through difficulties, we've developed a deep understanding and connection, standing united."),
-                    gap2(),
-                    bodyText("Some highlights include unforgettable moments in Ngapali and cherished memories in the captivating Ngwe Saung. These travel experiences have been more than destinations; they've been the backdrop to our growth, laughter, and bond strengthening. As we continue this remarkable journey, the adventures we've had serve as milestones in our shared story."),
-                    gap2(),
-                    Image.asset(AppAssets.story3in1),
-                    // Row(
-                    //   children: [
-                    //     Expanded(
-                    //       flex: 8,
-                    //       child: Image.asset(AppAssets.story3),
-                    //     ),
-                    //     Expanded(
-                    //       flex: 6,
-                    //       child: Image.asset(AppAssets.story4),
-                    //     ),
-                    //   ],
-                    // ),
-                    gap3(),
-                    title("Our engagement"),
-                    gap1(),
-                    subTitle("26 Nov, 2023"),
-                    gap2(),
-                    bodyText("Our journey, filled with ups and downs, brought us closer. It was during one of those challenging moments that we realized the depth of our love and commitment. In a simple, heartfelt moment, amidst life's trials, we got engaged."),
-                    gap2(),
-                    SizedBox(
-                      width: double.infinity,
-                      child: Image.asset(AppAssets.storyEngage),
+                  ),
+                  gap2(),
+                  SizedBox(
+                    width: double.infinity,
+                    child: AspectRatio(
+                      aspectRatio: 353/436,
+                      child: Image.asset(AppAssets.storyFemale),
                     ),
-                    (Get.height * 0.2).heightBox(),
-                    (Get.mediaQuery.padding.bottom).heightBox(),
-                  ]
-              ),
+                  ),
+                  gap1(),
+                  Container(
+                    width: double.infinity,
+                    margin: EdgeInsets.symmetric(
+                        vertical: (Get.height * 0.005)
+                    ),
+                    alignment: Alignment.centerLeft,
+                    child: Row(
+                      children: [
+                        Text(
+                            "and I am ",
+                            style: GoogleFonts.inter(
+                              fontSize: 16,
+                            )
+                        ),
+                        Text(
+                            "Kyi Phyu Mon. ",
+                            style: GoogleFonts.inter(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold
+                            )
+                        ),
+                      ],
+                    ),
+                  ),
+                  gap2(),
+                  Text(
+                      "Our story start with . . .",
+                      style: GoogleFonts.inter(
+                          fontSize: 16,
+                          fontWeight: FontWeight.normal
+                      )
+                  ),
+                  gap3(),
+                  title("First time we met"),
+                  gap2(),
+                  bodyText("Our story began during our high school days. In those teenage years, I handed her a heartfelt love letter. Unfortunately, we had to put our connection on hold as the demands of our studies took center stage."),
+                  gap2(),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        width: pageSize.width * 0.3,
+                        child: Column(
+                          children: [
+                            Image.asset(
+                              AppAssets.story1,
+                              width: double.infinity,
+                            ),
+                            gap1(),
+                            Image.asset(
+                              AppAssets.story2,
+                              width: double.infinity,
+                            ),
+                          ],
+                        ),
+                      ),
+                      10.widthBox(),
+                      Expanded(
+                        child: Column(
+                          children: [
+                            bodyText("However, fate had a way of bringing us back together. We met again when we became university students, thanks to mutual friends’ connections. Seeing her familiar face sparked memories of that long-forgotten love letter."),
+                            gap1(),
+                            bodyText("As the days turned into months, our connection rekindled. On the memorable date of August 23, 2013, we took a leap of faith and officially started dating")
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                  gap3(),
+                  title("From Milestone to Memories:\nOur 11-Year Journey"),
+                  gap2(),
+                  bodyText("In our 11 years of dating, we've faced life's challenges together, growing stronger with each milestone. Through difficulties, we've developed a deep understanding and connection, standing united."),
+                  gap2(),
+                  bodyText("Some highlights include unforgettable moments in Ngapali and cherished memories in the captivating Ngwe Saung. These travel experiences have been more than destinations; they've been the backdrop to our growth, laughter, and bond strengthening. As we continue this remarkable journey, the adventures we've had serve as milestones in our shared story."),
+                  gap2(),
+                  Image.asset(AppAssets.story3in1),
+                  // Row(
+                  //   children: [
+                  //     Expanded(
+                  //       flex: 8,
+                  //       child: Image.asset(AppAssets.story3),
+                  //     ),
+                  //     Expanded(
+                  //       flex: 6,
+                  //       child: Image.asset(AppAssets.story4),
+                  //     ),
+                  //   ],
+                  // ),
+                  gap3(),
+                  title("Our engagement"),
+                  gap1(),
+                  subTitle("26 Nov, 2023"),
+                  gap2(),
+                  bodyText("Our journey, filled with ups and downs, brought us closer. It was during one of those challenging moments that we realized the depth of our love and commitment. In a simple, heartfelt moment, amidst life's trials, we got engaged."),
+                  gap2(),
+                  SizedBox(
+                    width: double.infinity,
+                    child: Image.asset(AppAssets.storyEngage),
+                  ),
+                  (Get.height * 0.2).heightBox(),
+                  (Get.mediaQuery.padding.bottom).heightBox(),
+                ]
             );
           },
         ),

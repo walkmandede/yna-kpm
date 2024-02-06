@@ -22,7 +22,7 @@ dependencies:
   latlong2:
   http:
 #  mongo_dart:
-#  platform_device_id: ^1.0.1
+  platform_device_id: ^1.0.1
 
 
 dev_dependencies:

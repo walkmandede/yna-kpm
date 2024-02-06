@@ -25,7 +25,7 @@ class WeddingPage extends StatelessWidget {
         final layoutSize = Size(constraints.maxWidth, constraints.maxHeight);
         return Container(
           width: double.infinity,
-          height: double.infinity,
+          height: Get.height,
           decoration: BoxDecoration(
               image: DecorationImage(
                   image: Image.asset(AppAssets.weddingBg).image,
