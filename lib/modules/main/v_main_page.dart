@@ -93,7 +93,7 @@ class MainViewPage extends StatelessWidget {
               );
             }
             else{
-              return Scaffold(
+              return const Scaffold(
                 body: Stack(
                   children: [
                     SingleChildScrollView(
@@ -107,33 +107,6 @@ class MainViewPage extends StatelessWidget {
                         ],
                       ),
                     )
-                    // ValueListenableBuilder(
-                    //   valueListenable: controller.currentPage,
-                    //   builder: (context, currentPage, child) {
-                    //     final xShouldScroll = currentPage==1||currentPage==3;
-                    //     return PageView(
-                    //       controller: controller.pageController,
-                    //       scrollDirection: Axis.vertical,
-                    //       physics: xShouldScroll?const NeverScrollableScrollPhysics():const ClampingScrollPhysics(),
-                    //       onPageChanged: (value) {
-                    //         controller.onPageChange(pageIndex: value);
-                    //       },
-                    //       allowImplicitScrolling: false,
-                    //       children: const[
-                    //         HomePage(),
-                    //         StoryPage(),
-                    //         WeddingPage(),
-                    //         AlbumPage(),
-                    //         RsvpPage()
-                    //       ],
-                    //     );
-                    //   },
-                    // ),
-                    // Positioned(
-                    //   bottom: (pageSize.width*0.075),
-                    //   right: (pageSize.width*0.075),
-                    //   child: const PageIndicator(),
-                    // )
                   ],
                 ),
               );

@@ -24,102 +24,96 @@ class WeddingPage extends StatelessWidget {
       builder: (context, constraints) {
         final layoutSize = Size(constraints.maxWidth, constraints.maxHeight);
         return Container(
-          width: double.infinity,
-          height: Get.height,
+          width: layoutSize.width,
+          margin: EdgeInsets.symmetric(
+            horizontal: layoutSize.width*0.05,
+          ),
           decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: Image.asset(AppAssets.weddingBg).image,
-                  fit: BoxFit.fill)),
-          child: Stack(
-            children: [
-              Column(
-                children: [
-                  (Get.mediaQuery.padding.top).heightBox(),
-                  (Get.height * 0.005).heightBox(),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: Get.width * 0.1),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Flexible(
-                          child: FittedBox(
-                            child: Text(
-                              "We are getting married",
-                              style: GoogleFonts.alexBrush(
-                                  fontSize: 2000, color: AppColors.red),
-                            ),
-                          ),
-                        )
-                      ],
+            border: Border.all(
+              color: AppColors.gold,
+            ),
+            borderRadius: BorderRadius.circular(10)
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(10),
+            child: AspectRatio(
+              aspectRatio: 390/844,
+              child: Container(
+                width: double.infinity,
+                height: Get.height,
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: Image.asset(AppAssets.weddingBg).image,
+                        fit: BoxFit.fill)),
+                child: Stack(
+                  children: [
+                    ValueListenableBuilder(
+                      valueListenable: controller.xDialogOpen,
+                      builder: (context, xDialogOpen, child) {
+                        return xDialogOpen
+                            ? GestureDetector(
+                                onTap: () {
+                                  if (xDialogOpen) {
+                                    controller.xDialogOpen.value = false;
+                                    controller.xDialogOpen.notifyListeners();
+                                  }
+                                },
+                                child: Container(
+                                    width: double.infinity,
+                                    height: double.infinity,
+                                    decoration: BoxDecoration(
+                                      color: Colors.black.withOpacity(0.5),
+                                    )),
+                              )
+                            : const SizedBox.shrink();
+                      },
                     ),
-                  ),
-                  const Spacer(),
-                ],
-              ),
-              ValueListenableBuilder(
-                valueListenable: controller.xDialogOpen,
-                builder: (context, xDialogOpen, child) {
-                  return xDialogOpen
-                      ? GestureDetector(
-                          onTap: () {
+                    Column(
+                      children: [
+                        const Spacer(),
+                        ValueListenableBuilder(
+                          valueListenable: controller.xDialogOpen,
+                          builder: (context, xDialogOpen, child) {
                             if (xDialogOpen) {
-                              controller.xDialogOpen.value = false;
-                              controller.xDialogOpen.notifyListeners();
+                              return Column(
+                                children: [
+                                  const WeddingMapWidget(),
+                                ],
+                              );
+                            } else {
+                              return Container();
                             }
                           },
-                          child: Container(
-                              width: double.infinity,
-                              height: double.infinity,
-                              decoration: BoxDecoration(
-                                color: Colors.black.withOpacity(0.5),
-                              )),
-                        )
-                      : const SizedBox.shrink();
-                },
-              ),
-              Column(
-                children: [
-                  const Spacer(),
-                  ValueListenableBuilder(
-                    valueListenable: controller.xDialogOpen,
-                    builder: (context, xDialogOpen, child) {
-                      if (xDialogOpen) {
-                        return Column(
-                          children: [
-                            const WeddingMapWidget(),
-                          ],
-                        );
-                      } else {
-                        return Container();
-                      }
-                    },
-                  ),
-                  Container(
-                    padding: EdgeInsets.only(
-                      top: max(20, Get.height * 0.02),
-                      bottom: Get.height * 0.05,
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        ElevatedButton(
-                          onPressed: () {
-                            controller.xDialogOpen.value =
-                                !controller.xDialogOpen.value;
-                            controller.xDialogOpen.notifyListeners();
-                          },
-                          style: ElevatedButton.styleFrom(
-                              shape: const CircleBorder(),
-                              padding: const EdgeInsets.all(20),
-                              backgroundColor: AppColors.white),
-                          child: SvgPicture.string(AppSvgs.weddingMapIcon),
-                        )
+                        ),
+                        Container(
+                          padding: EdgeInsets.only(
+                            top: max(20, Get.height * 0.02),
+                            bottom: Get.height * 0.05,
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              ElevatedButton(
+                                onPressed: () {
+                                  controller.xDialogOpen.value =
+                                      !controller.xDialogOpen.value;
+                                  controller.xDialogOpen.notifyListeners();
+                                },
+                                style: ElevatedButton.styleFrom(
+                                    shape: const CircleBorder(),
+                                    padding: const EdgeInsets.all(20),
+                                    backgroundColor: AppColors.white),
+                                child: SvgPicture.string(AppSvgs.weddingMapIcon),
+                              )
+                            ],
+                          ),
+                        ),
                       ],
-                    ),
-                  ),
-                ],
-              )
-            ],
+                    )
+                  ],
+                ),
+              ),
+            ),
           ),
         );
       },
